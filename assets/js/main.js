@@ -97,30 +97,3 @@ const video = document.getElementById("hoverVideo");
     video.addEventListener("mouseleave", () => {
         video.pause();
     });
-
-
-    const carousel = document.getElementById("carousel");
-        const items = document.querySelectorAll("#carousel > div");
-        const totalItems = items.length;
-        const visibleItems = 3;
-        let index = 0;
-
-        function updateCarousel() {
-            carousel.style.transform = `translateX(-${index * (100 / visibleItems)}%)`;
-        }
-
-        document.getElementById("nextBtn").addEventListener("click", () => {
-            index = (index + 1) % (totalItems - visibleItems + 1);
-            updateCarousel();
-        });
-
-        document.getElementById("prevBtn").addEventListener("click", () => {
-            index = (index - 1 + (totalItems - visibleItems + 1)) % (totalItems - visibleItems + 1);
-            updateCarousel();
-        });
-
-        // Auto-slide every 3 seconds
-        setInterval(() => {
-            index = (index + 1) % (totalItems - visibleItems + 1);
-            updateCarousel();
-        }, 3000);
